@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TP1Ex1Q1Controller!{% endblock %}
+
+{% block body %}
+    <div class="example-wrapper">
+        <h1>Hello {{ date|date('d/m/Y H:i:s') }} !</h1>
+    </div>
+
+    <h1>Formulaire</h1>
+
+    <form method="post" action="{{ path('tp1_ex1_q1_result') }}">
+        <label for="prenom">Prénom :</label>
+        <input type="text" id="prenom" name="prenom" required>
+
+        <br><br>
+
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" required>
+
+        <br><br>
+
+        <button type="submit">Envoyer</button>
+    </form>
+    
+    <h1>Calcul de l'âge</h1>
+    <button onclick="demanderAge()">Calculer mon âge</button>
+    <p id="id_Age"></p>
+{% endblock %}
+
+{% block javascripts %}
+    {% include 'tp1_ex1_q1/2_1.html.twig' %}
+{% endblock %}

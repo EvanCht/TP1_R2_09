@@ -1,0 +1,47 @@
+<script>
+    function demanderAge() {
+        let saisie = prompt("Entrez votre date de naissance au format JJ/MM/AAAA :");
+
+        if (saisie === null || saisie.trim() === "") {
+            document.getElementById("id_Age").innerHTML =
+                "Erreur : entrez votre date sous forme de valeurs numériques au format JJ/MM/AAAA.";
+            return;
+        }
+
+        const regex = /^(\d{2})\/(\d{2})\/(\d{4})$/;
+        const match = saisie.match(regex);
+
+        if (!match) {
+            document.getElementById("id_Age").innerHTML =
+                "Erreur : entrez votre date sous forme de valeurs numériques au format JJ/MM/AAAA.";
+            return;
+        }
+
+        let jour = parseInt(match[1], 10);
+        let mois = parseInt(match[2], 10);
+        let annee = parseInt(match[3], 10);
+
+        let dateNaissance = new Date(annee, mois - 1, jour);
+
+        if (
+            dateNaissance.getFullYear() !== annee ||
+            dateNaissance.getMonth() !== mois - 1 ||
+            dateNaissance.getDate() !== jour
+        ) {
+            document.getElementById("id_Age").innerHTML = "Erreur : date invalide.";
+            return;
+        }
+
+        let aujourdHui = new Date();
+        let age = aujourdHui.getFullYear() - annee;
+
+        if (
+            aujourdHui.getMonth() + 1 < mois ||
+            (aujourdHui.getMonth() + 1 === mois && aujourdHui.getDate() < jour)
+        ) {
+            age--;
+        }
+
+        document.getElementById("id_Age").innerHTML = "Vous avez " + age + " ans.";
+    }
+</script>
