@@ -1,0 +1,19 @@
+<script>
+    function ajouterElement() {
+        let nouveauBUT = prompt("Entrez le nom du BUT à ajouter :");
+
+        if (nouveauBUT !== null && nouveauBUT.trim() !== "") {
+            let li = document.createElement("li");
+            li.textContent = nouveauBUT;
+            document.getElementById("listeBUT").appendChild(li);
+        }
+    }
+
+    function supprimerElement() {
+        let liste = document.getElementById("listeBUT");
+
+        if (liste.lastElementChild) {
+            liste.removeChild(liste.lastElementChild);
+        }
+    }
+</script>

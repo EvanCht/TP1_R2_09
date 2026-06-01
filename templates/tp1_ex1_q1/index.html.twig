@@ -26,8 +26,31 @@
     <h1>Calcul de l'âge</h1>
     <button onclick="demanderAge()">Calculer mon âge</button>
     <p id="id_Age"></p>
+
+    <h1>Exercice 2.2</h1>
+
+    <p id="monParagraphe" onmouseover="changerStyle()" onmouseout="remettreStyle()">
+        Passez la souris sur ce texte pour modifier son apparence.
+    </p>
+
+    <h1>Liste des BUT de l'IUT de Roanne</h1>
+
+    <ul id="listeBUT">
+        <li>BUT RT</li>
+        <li>BUT GIM</li>
+        <li>BUT GEA</li>
+        <li>BUT GACO</li>
+        <li>BUT TC</li>
+    </ul>
+
+    <button onclick="ajouterElement()">Ajouter un BUT</button>
+    <button onclick="supprimerElement()">Supprimer le dernier BUT</button>
 {% endblock %}
 
 {% block javascripts %}
     {% include 'tp1_ex1_q1/2_1.html.twig' %}
+
+    {% include 'tp1_ex1_q1/2_2.html.twig' %}
+
+    {% include 'tp1_ex1_q1/2_3.html.twig' %}
 {% endblock %}
