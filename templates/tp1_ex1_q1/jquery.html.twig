@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Exercice 2.4 jQuery{% endblock %}
+
+{% block body %}
+    <h1>Exercice 2.4 avec jQuery</h1>
+
+    <button id="btnAge">Calculer mon âge</button>
+    <p id="id_Age"></p>
+
+    <p id="paraStyle">Passez la souris sur ce paragraphe.</p>
+
+    <ul id="listeBUT">
+        <li>BUT RT</li>
+        <li>BUT GIM</li>
+        <li>BUT GEA</li>
+        <li>BUT GACO</li>
+        <li>BUT TC</li>
+    </ul>
+
+    <button id="btnAjouter">Ajouter un BUT</button>
+    <button id="btnSupprimer">Supprimer le dernier BUT</button>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/jquery-4.0.0.min.js') }}"></script>
+    {% include 'tp1_ex1_q1/2_4.html.twig' %}
+{% endblock %}

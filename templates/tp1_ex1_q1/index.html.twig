@@ -45,6 +45,16 @@
 
     <button onclick="ajouterElement()">Ajouter un BUT</button>
     <button onclick="supprimerElement()">Supprimer le dernier BUT</button>
+
+    
+    <a href="{{ path('tp1_ex1_q1_jquery') }}">
+        <button>jQuery</button>
+    </a>
+
+    <button onclick="window.location.href='{{ path('connexion') }}'">
+        Connexion
+    </button>
+
 {% endblock %}
 
 {% block javascripts %}

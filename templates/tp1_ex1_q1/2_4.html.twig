@@ -1,0 +1,77 @@
+<script>
+    $(document).ready(function () {
+
+        $("#btnAge").click(function () {
+            let saisie = prompt("Entrez votre date de naissance au format JJ/MM/AAAA :");
+
+            if (saisie === null || saisie.trim() === "") {
+                $("#id_Age").html("Erreur : entrez votre date sous forme de valeurs numériques au format JJ/MM/AAAA.");
+                return;
+            }
+
+            const regex = /^(\d{2})\/(\d{2})\/(\d{4})$/;
+            const match = saisie.match(regex);
+
+            if (!match) {
+                $("#id_Age").html("Erreur : entrez votre date sous forme de valeurs numériques au format JJ/MM/AAAA.");
+                return;
+            }
+
+            let jour = parseInt(match[1], 10);
+            let mois = parseInt(match[2], 10);
+            let annee = parseInt(match[3], 10);
+
+            let dateNaissance = new Date(annee, mois - 1, jour);
+
+            if (
+                dateNaissance.getFullYear() !== annee ||
+                dateNaissance.getMonth() !== mois - 1 ||
+                dateNaissance.getDate() !== jour
+            ) {
+                $("#id_Age").html("Erreur : date invalide.");
+                return;
+            }
+
+            let aujourdHui = new Date();
+            let age = aujourdHui.getFullYear() - annee;
+
+            if (
+                aujourdHui.getMonth() + 1 < mois ||
+                (aujourdHui.getMonth() + 1 === mois && aujourdHui.getDate() < jour)
+            ) {
+                age--;
+            }
+
+            $("#id_Age").html("Vous avez " + age + " ans.");
+        });
+
+        $("#paraStyle").mouseover(function () {
+            $(this).css({
+                "font-size": "30px",
+                "font-style": "italic",
+                "color": "red"
+            });
+        });
+
+        $("#paraStyle").mouseout(function () {
+            $(this).css({
+                "font-size": "16px",
+                "font-style": "normal",
+                "color": "black"
+            });
+        });
+
+        $("#btnAjouter").click(function () {
+            let nouveauBUT = prompt("Entrez le nom du BUT à ajouter :");
+
+            if (nouveauBUT !== null && nouveauBUT.trim() !== "") {
+                $("#listeBUT").append("<li>" + nouveauBUT + "</li>");
+            }
+        });
+
+        $("#btnSupprimer").click(function () {
+            $("#listeBUT li:last").remove();
+        });
+
+    });
+</script>

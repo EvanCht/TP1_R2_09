@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller;
 
+use PDO;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -30,4 +31,11 @@ class TP1Ex1Q1Controller extends AbstractController
             'date' => $date,
         ]);
     }
+
+    #[Route('/jquery', name: 'tp1_ex1_q1_jquery')]
+    public function jquery(): Response
+    {
+        return $this->render('tp1_ex1_q1/jquery.html.twig');
+    }
 }
+

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue{% endblock %}
+
+{% block body %}
+    <h1>Bonjour {{ login }}</h1>
+
+     <button onclick="window.location.href='{{ path('tp1_ex1_q1') }}'">
+        Retour a l'acceuil
+    </button>
+{% endblock %}
